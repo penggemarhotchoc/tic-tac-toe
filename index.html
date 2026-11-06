@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe Ultimate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-decorations">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <div class="app-container">
+    <header class="game-header">
+      <div class="badge">Classic Arcade Reimagined</div>
+      <h1 class="game-title">TIC <span>TAC</span> TOE</h1>
+      <p class="subtitle">Challenge a friend or test your wits against the AI</p>
+    </header>
+
+    <!-- Game Controls / Mode Selector -->
+    <div class="panel controls-panel">
+      <div class="mode-selector" role="tablist">
+        <button id="mode-pve" class="mode-btn active" data-mode="pve">
+          <span class="icon">🤖</span>
+          <span>vs AI</span>
+        </button>
+        <button id="mode-pvp" class="mode-btn" data-mode="pvp">
+          <span class="icon">👥</span>
+          <span>vs Player</span>
+        </button>
+      </div>
+
+      <div class="difficulty-wrapper" id="difficulty-wrapper">
+        <label for="difficulty-select">AI Level:</label>
+        <div class="select-container">
+          <select id="difficulty-select">
+            <option value="easy">Easy (Casual)</option>
+            <option value="medium">Medium (Smart)</option>
+            <option value="hard" selected>Unbeatable (Master)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Score Board -->
+    <div class="scoreboard">
+      <div class="score-card player-x-card active" id="card-x">
+        <div class="player-marker x-marker">✕</div>
+        <div class="player-info">
+          <span class="player-label" id="label-x">Player (X)</span>
+          <span class="score-value" id="score-x">0</span>
+        </div>
+      </div>
+
+      <div class="score-card ties-card" id="card-ties">
+        <div class="player-marker tie-marker">🤝</div>
+        <div class="player-info">
+          <span class="player-label">Ties</span>
+          <span class="score-value" id="score-ties">0</span>
+        </div>
+      </div>
+
+      <div class="score-card player-o-card" id="card-o">
+        <div class="player-marker o-marker">◯</div>
+        <div class="player-info">
+          <span class="player-label" id="label-o">AI (O)</span>
+          <span class="score-value" id="score-o">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Turn Banner -->
+    <div class="turn-indicator" id="turn-indicator">
+      <span class="turn-dot x-turn" id="turn-dot"></span>
+      <span id="turn-text"><strong class="x-color">Player X</strong>'s Turn</span>
+    </div>
+
+    <!-- The Game Board -->
+    <div class="board-wrapper">
+      <div class="board" id="board" aria-label="Tic Tac Toe Board">
+        <button class="cell" data-index="0" aria-label="Cell 1"></button>
+        <button class="cell" data-index="1" aria-label="Cell 2"></button>
+        <button class="cell" data-index="2" aria-label="Cell 3"></button>
+        <button class="cell" data-index="3" aria-label="Cell 4"></button>
+        <button class="cell" data-index="4" aria-label="Cell 5"></button>
+        <button class="cell" data-index="5" aria-label="Cell 6"></button>
+        <button class="cell" data-index="6" aria-label="Cell 7"></button>
+        <button class="cell" data-index="7" aria-label="Cell 8"></button>
+        <button class="cell" data-index="8" aria-label="Cell 9"></button>
+        <div class="strike-line" id="strike-line"></div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions-panel">
+      <button id="btn-restart" class="action-btn primary" title="New Game (Clear Board)">
+        <span class="btn-icon">🔄</span> Play Again
+      </button>
+      <button id="btn-reset-scores" class="action-btn secondary" title="Reset all scores to 0">
+        <span class="btn-icon">⚡</span> Reset Score
+      </button>
+      <button id="btn-sound-toggle" class="action-btn icon-only" title="Toggle Sound FX" aria-label="Toggle Sound FX">
+        <span id="sound-icon">🔊</span>
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Built with ❤️ • Ready for GitHub & Vercel</p>
+    </footer>
+  </div>
+
+  <!-- Confetti Canvas overlay -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
